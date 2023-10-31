@@ -1,9 +1,9 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy Jekyll Site
 
 on:
   push:
     branches:
-      - gh-pages # 若gh_pages有異動則觸發
+      - gh-pages # 觸發條件，當 gh-pages 分支有push則觸發
 
 jobs:
   build-and-deploy:
@@ -12,21 +12,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2 
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2 # 設立Node.js
+      - name: Set up Ruby and Bundler
+        uses: ruby/setup-ruby@v1 # 建置 Ruby 和 Bundler 環境
         with:
-          node-version: 14
+          ruby-version: 3.0 
+          bundler-cache: true
 
-      - name: Install dependencies
-        run: npm install 
-
-      - name: Build
-        run: npm run build 
+      - name: Install dependencies and build Jekyll site
+        run: |
+          cd gh-pages
+          bundle install --path vendor/bundle
+          bundle exec jekyll build
 
       - name: Deploy to GitHub Pages
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git add .
-          git commit -m "Deploy to GitHub Pages"
-          git push
+        uses: peaceiris/actions-gh-pages@v3 # 使用 actions-gh-pages 
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # 提供 GitHub token，使得 GitHub Actions 可以push code to repository
+          publish_dir: gh-pages/_site # 文件路徑
