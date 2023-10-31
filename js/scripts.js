@@ -51,4 +51,17 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+
+    // 
+    window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY;
+        var header = document.querySelector('header.masthead');
+
+        if (scrollPosition > 100) {
+            header.classList.add('scrolling');
+        } else {
+            header.classList.remove('scrolling');
+        }
+    });
+
 });
