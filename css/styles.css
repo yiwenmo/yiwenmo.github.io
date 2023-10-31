@@ -10968,7 +10968,16 @@ header.masthead .masthead-heading {
   margin-bottom: 2rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-
+.scrolling header.masthead .masthead-subheading {
+  font-size: 1rem; /* 調整滾動時字體大小 */
+  line-height: 1rem;
+  margin-bottom: 15px; /* 底部間距 */
+}
+.scrolling header.masthead .masthead-heading {
+  font-size: 2rem; /* 調整滾動時字體大小 */
+  line-height: 2rem;
+  margin-bottom: 1rem; /* 底部間距 */
+}
 @media (min-width: 768px) {
   header.masthead {
     padding-top: 17rem;
@@ -10987,18 +10996,6 @@ header.masthead .masthead-heading {
     margin-bottom: 4rem;
   }
 }
-.scrolling header.masthead .masthead-subheading {
-  font-size: 1rem; /* 調整滾動時字體大小 */
-  line-height: 1rem;
-  margin-bottom: 15px; /* 底部間距 */
-}
-
-.scrolling header.masthead .masthead-heading {
-  font-size: 2rem; /* 調整滾動時字體大小 */
-  line-height: 2rem;
-  margin-bottom: 1rem; /* 底部間距 */
-}
-
 #portfolio .portfolio-item {
   max-width: 26rem;
   margin-left: auto;
