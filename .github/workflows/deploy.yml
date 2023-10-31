@@ -3,19 +3,22 @@ name: Build and Deploy Jekyll Site
 on:
   push:
     branches:
-      - gh-pages # 觸發條件，當 gh-pages 分支有push則觸發
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2 
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages # 指定要检出的分支
+          path: gh-pages # 指定目标目录
 
       - name: Set up Ruby and Bundler
-        uses: ruby/setup-ruby@v1 # 建置 Ruby 和 Bundler 環境
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0 
+          ruby-version: 3.0
           bundler-cache: true
 
       - name: Install dependencies and build Jekyll site
@@ -25,7 +28,7 @@ jobs:
           bundle exec jekyll build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3 # 使用 actions-gh-pages 
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # 提供 GitHub token，使得 GitHub Actions 可以push code to repository
-          publish_dir: gh-pages/_site # 文件路徑
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: gh-pages/_site
