@@ -1,7 +1,7 @@
 title: "My Jekyll Website"
 description: "This is my Jekyll website description."
 url: "https://myiwen.github.io"
-baseurl: ""
+baseurl: /
 theme: jekyll-theme-minimal
 markdown: kramdown
 exclude:
