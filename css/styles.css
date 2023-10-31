@@ -10952,6 +10952,7 @@ header.masthead {
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明的黑色背景 */
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
@@ -10986,6 +10987,18 @@ header.masthead .masthead-heading {
     margin-bottom: 4rem;
   }
 }
+.scrolling header.masthead .masthead-subheading {
+  font-size: 1rem; /* 調整滾動時字體大小 */
+  line-height: 1rem;
+  margin-bottom: 15px; /* 底部間距 */
+}
+
+.scrolling header.masthead .masthead-heading {
+  font-size: 2rem; /* 調整滾動時字體大小 */
+  line-height: 2rem;
+  margin-bottom: 1rem; /* 底部間距 */
+}
+
 #portfolio .portfolio-item {
   max-width: 26rem;
   margin-left: auto;
