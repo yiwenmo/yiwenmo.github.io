@@ -12,8 +12,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          ref: gh-pages # 指定要检出的分支
-          path: gh-pages # 指定目标目录
+          ref: gh-pages # 指定分支
+          path: gh-pages # 指定目標目錄
 
       - name: Set up Ruby and Bundler
         uses: ruby/setup-ruby@v1
