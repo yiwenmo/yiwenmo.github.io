@@ -75,6 +75,7 @@ function changeBackgroundOnScroll() {
 
 window.addEventListener('scroll', changeBackgroundOnScroll);
 
+
   // 在DOMContentLoaded事件中的原有程式碼...
   window.addEventListener('DOMContentLoaded', event => {
     // Navbar shrink function
