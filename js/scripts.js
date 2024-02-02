@@ -64,19 +64,17 @@ const backgroundImages = [
     "../assets/img/background_img/NTU_rihtengwu.jpg",
     "../assets/img/background_img/NTU_run.jpg",
     "../assets/img/background_img/SGIS_lab.jpg"
-  ];
-  
-  // 改變背景圖像的函式
-  function changeBackgroundOnScroll() {
+];
+
+function changeBackgroundOnScroll() {
     const header = document.querySelector('.masthead');
-    const scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+    const scrollPercentage = (window.scrollX + document.documentElement.clientWidth) / (document.documentElement.scrollWidth - document.documentElement.clientWidth);
     const index = Math.floor(scrollPercentage * backgroundImages.length);
     header.style.backgroundImage = `url(${backgroundImages[index]})`;
-  }
-  
-  // 監聽網頁滾動事件
-  window.addEventListener('scroll', changeBackgroundOnScroll);
-  
+}
+
+window.addEventListener('scroll', changeBackgroundOnScroll);
+
   // 在DOMContentLoaded事件中的原有程式碼...
   window.addEventListener('DOMContentLoaded', event => {
     // Navbar shrink function
