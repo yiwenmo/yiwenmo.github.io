@@ -10942,21 +10942,18 @@ p {
     margin-right: 0;
   }
 }
-
 header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/background_img/NTU_fam.JPG");
+  background-image: url("../assets/img/background_img/NTU_run.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明的黑色背景 */
 }
-
-
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
   font-style: italic;
