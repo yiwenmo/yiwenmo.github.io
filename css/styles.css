@@ -10947,11 +10947,14 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/IMG_3644.JPG");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
+  background-image: url("../assets/img/background_img/NTU_fam.JPG"),
+                    url("../assets/img/background_img/NTU_rihtengwu.jpg"),
+                    url("../assets/img/background_img/NTU_run.jpg"),
+                    url("../assets/img/background_img/SGIS_lab.jpg");
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-attachment: scroll, scroll, scroll, scroll;
+  background-position: center center, center center, center center, center center;
+  background-size: cover, cover, cover, cover;
   background-color: rgba(0, 0, 0, 0.5); /* 半透明的黑色背景 */
 }
 header.masthead .masthead-subheading {
