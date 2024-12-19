@@ -51,31 +51,4 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-
-    // 添加滾動顯示動畫
-    const aboutItems = document.querySelectorAll('.about-item');
-    
-    const revealOnScroll = function() {
-        aboutItems.forEach(item => {
-            const itemTop = item.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (itemTop < windowHeight - 100) {
-                item.style.opacity = '1';
-                item.style.transform = 'translateY(0)';
-            }
-        });
-    };
-
-    // 初始化樣式
-    aboutItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        item.style.transition = 'all 0.6s ease';
-    });
-
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // 初始化檢查
-
-
 });
