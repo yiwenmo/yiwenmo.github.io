@@ -11,9 +11,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          ref: gh-pages # git branch
-          path: gh-pages # path
+        # with:
+        #   ref: gh-pages # git branch
+        #   path: gh-pages # path
 
       - name: Set up Ruby and Bundler
         uses: ruby/setup-ruby@v1
@@ -23,12 +23,12 @@ jobs:
 
       - name: Install dependencies and build Jekyll site
         run: |
-          cd gh-pages
-          bundle install --path vendor/bundle
+          bundle config set path 'vendor/bundle'
+          bundle install
           bundle exec jekyll build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: gh-pages/_site
+          publish_dir: ./_site
