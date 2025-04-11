@@ -32,6 +32,6 @@ jobs:
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git add _posts || echo "No changes"
         git commit -m "Auto-sync HackMD notes" || echo "No changes to commit"
-        git push
+        git push origin main
 
 
