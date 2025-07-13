@@ -19,6 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, image, link, descripti
           fill
           style={{ objectFit: 'cover' }}
           priority
+          unoptimized
         />
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
         <div className="absolute bottom-4 left-4 right-4 z-10">

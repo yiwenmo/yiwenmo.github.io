@@ -20,6 +20,7 @@ export default function AboutMe() {
               height={80}
               alt="Academia Sinica Logo"
               className="mb-4"
+              unoptimized
             />
             <h4 className="font-semibold text-base mb-1">Research Assistant</h4>
             <p className="text-gray-600 mb-2">Center for GIS, RCHSS, Academia Sinica</p>
@@ -39,6 +40,7 @@ export default function AboutMe() {
               height={80}
               alt="NTU Logo"
               className="mb-4"
+              unoptimized
             />
             <h4 className="font-semibold text-base mb-1">M.S. in Civil Engineering</h4>
             <p className="text-gray-600 mb-2">National Taiwan University, Geomatics & AI</p>
@@ -59,6 +61,7 @@ export default function AboutMe() {
               height={80}
               alt="NTPU Logo"
               className="mb-4"
+              unoptimized
             />
             <h4 className="font-semibold text-base mb-1">B.S. in Real Estate & Built Environment</h4>
             <p className="text-gray-600 mb-2">National Taipei University, Spatial Information Focus</p>
