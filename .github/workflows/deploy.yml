@@ -1,3 +1,10 @@
+name: Deploy Next.js to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -14,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: cd personal-website && npm ci
 
-      - name: Build
+      - name: Build static site
         run: cd personal-website && npm run build
 
       - name: Deploy to GitHub Pages
