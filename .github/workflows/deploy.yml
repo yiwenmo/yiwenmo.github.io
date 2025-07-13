@@ -19,16 +19,16 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm ci
+        run: cd personal-website && npm ci
 
       - name: Build
-        run: npm run build
+        run: cd personal-website && npm run build
 
       - name: Export static site
-        run: npm run export
+        run: cd personal-website && npm run export
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./personal-website/out  
+          publish_dir: ./personal-website/out
