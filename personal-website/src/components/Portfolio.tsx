@@ -6,7 +6,7 @@ export default function Portfolio() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold uppercase">Projects</h2>
-          <p className="text-gray-600">Some things I&apos;sve worked on.</p>
+          <p className="text-gray-600">Some things I&apo;sve worked on.</p>
         </div>
         <div className="flex flex-wrap justify-center gap-10">
           <ProjectCard

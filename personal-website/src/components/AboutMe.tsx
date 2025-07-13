@@ -48,7 +48,7 @@ export default function AboutMe() {
               <li>Awarded 2023 Dean’s Honor (Top 1%)</li>
               <li>Focused on spatial machine learning and remote sensing</li>
               <p className="text-sm text-gray-500">
-              See my <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352938525001818" target="_blank" className="underline hover:text-blue-600">Master Thesis</a>
+              See my <a href="https://tdr.lib.ntu.edu.tw/handle/123456789/88520" target="_blank" className="underline hover:text-blue-600">Master Thesis</a>
               </p>
             </ul>
           </div>
