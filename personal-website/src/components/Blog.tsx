@@ -18,7 +18,7 @@ export default function Blog() {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold uppercase text-gray-900 dark:text-black">Blog</h2>
           <p className="text-gray-600 dark:text-gray-400">
-            Selected notes I've written on HackMD.
+            Selected notes I&apos;sve written on HackMD.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

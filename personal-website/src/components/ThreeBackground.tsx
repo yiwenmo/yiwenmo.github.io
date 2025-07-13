@@ -1,6 +1,6 @@
 'use client';
 
-import { Canvas, useFrame, useThree, extend } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { shaderMaterial } from '@react-three/drei';
 import { Suspense, useRef, useEffect, useMemo } from 'react';
 import * as THREE from 'three';
@@ -8,11 +8,12 @@ import { createNoise4D } from 'simplex-noise';
 
 const simplex = createNoise4D();
 
+// 定義 ParticleMaterial，不需要 extend
 const ParticleMaterial = shaderMaterial(
   {
-    uColorSlow: new THREE.Color('#8A2BE2'),   // slow - purple blue
-    uColorMid: new THREE.Color('#00FFFF'),    // medium - green blue
-    uColorFast: new THREE.Color('#FFD700'),   // fast - gold
+    uColorSlow: new THREE.Color('#8A2BE2'),
+    uColorMid: new THREE.Color('#00FFFF'),
+    uColorFast: new THREE.Color('#FFD700'),
     uFadeNear: 2.0,
     uFadeFar: 8.0,
     uGlobalAlpha: 1.0,
@@ -36,46 +37,46 @@ const ParticleMaterial = shaderMaterial(
     }
   `,
   `
-  uniform vec3 uColorSlow;
-  uniform vec3 uColorMid;
-  uniform vec3 uColorFast;
-  uniform float uFadeNear;
-  uniform float uFadeFar;
-  uniform float uGlobalAlpha;
+    uniform vec3 uColorSlow;
+    uniform vec3 uColorMid;
+    uniform vec3 uColorFast;
+    uniform float uFadeNear;
+    uniform float uFadeFar;
+    uniform float uGlobalAlpha;
 
-  varying float vLifetime;
-  varying float vVelocity;
-  varying float vDist;
+    varying float vLifetime;
+    varying float vVelocity;
+    varying float vDist;
 
-  void main() {
-    float distToCenter = distance(gl_PointCoord, vec2(0.5));
-    float circle = 1.0 - smoothstep(0.45, 0.5, distToCenter);
-    if (circle < 0.01) discard;
+    void main() {
+      float distToCenter = distance(gl_PointCoord, vec2(0.5));
+      float circle = 1.0 - smoothstep(0.45, 0.5, distToCenter);
+      if (circle < 0.01) discard;
 
-    float lifeOpacity = smoothstep(0.0, 0.2, vLifetime) * (1.0 - smoothstep(0.8, 1.0, vLifetime));
-    float depthFade = 1.0 - smoothstep(uFadeNear, uFadeFar, vDist);
-    float finalOpacity = lifeOpacity * depthFade * circle;
-    if (finalOpacity < 0.01) discard;
+      float lifeOpacity = smoothstep(0.0, 0.2, vLifetime) * (1.0 - smoothstep(0.8, 1.0, vLifetime));
+      float depthFade = 1.0 - smoothstep(uFadeNear, uFadeFar, vDist);
+      float finalOpacity = lifeOpacity * depthFade * circle;
+      if (finalOpacity < 0.01) discard;
 
-    // limited speed range from 0 to 1
-    float speedT = clamp(vVelocity, 0.0, 1.0);
-    vec3 slowMid = mix(uColorSlow, uColorMid, speedT);
-    vec3 baseColor = mix(slowMid, uColorFast, speedT * speedT);
+      float speedT = clamp(vVelocity, 0.0, 1.0);
+      vec3 slowMid = mix(uColorSlow, uColorMid, speedT);
+      vec3 baseColor = mix(slowMid, uColorFast, speedT * speedT);
 
-    float glow = smoothstep(0.4, 0.0, distToCenter);
-    vec3 finalColor = baseColor + baseColor * glow * 0.6;
+      float glow = smoothstep(0.4, 0.0, distToCenter);
+      vec3 finalColor = baseColor + baseColor * glow * 0.6;
 
-    gl_FragColor = vec4(finalColor, finalOpacity * uGlobalAlpha);
-  }
+      gl_FragColor = vec4(finalColor, finalOpacity * uGlobalAlpha);
+    }
   `
 );
-
-extend({ ParticleMaterial });
 
 function ParticleField() {
   const { camera } = useThree();
   const pointsRef = useRef<THREE.Points>(null);
-  const shaderRef = useRef<THREE.ShaderMaterial>(null);
+
+  // ✅ 用 primitive 就要自己建 material 實例
+  const shaderMaterialInstance = useMemo(() => new ParticleMaterial(), []);
+
   const mouse = useRef<[number, number]>([0, 0]);
   const clickRef = useRef<{ position: THREE.Vector3; time: number } | null>(null);
 
@@ -121,7 +122,7 @@ function ParticleField() {
   }, []);
 
   useFrame((_, delta) => {
-    if (!pointsRef.current || !shaderRef.current) return;
+    if (!pointsRef.current) return;
 
     const posAttr = pointsRef.current.geometry.attributes.position;
     const lifetimeAttr = pointsRef.current.geometry.attributes.aLifetime;
@@ -154,7 +155,6 @@ function ParticleField() {
       const strength = influenceFalloff * 4.0;
       temp.addScaledVector(direction, strength * noise * delta);
 
-      // click force effect
       if (clickRef.current) {
         const elapsed = time - clickRef.current.time;
         if (elapsed < 0.5) {
@@ -184,15 +184,12 @@ function ParticleField() {
         <bufferAttribute attach="attributes-aLifetime" args={[particleData.lifetimes, 2]} />
         <bufferAttribute attach="attributes-aVelocity" args={[particleData.velocities, 1]} />
       </bufferGeometry>
-      <particleMaterial
-        ref={shaderRef}
-        key="particle-material"
-        transparent
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-        uFadeNear={3.0}
-        uFadeFar={8.0}
-        />
+
+      {/* ✅ 用 primitive，完全不用 <particleMaterial /> */}
+      <primitive
+        object={shaderMaterialInstance}
+        attach="material"
+      />
     </points>
   );
 }
@@ -208,4 +205,3 @@ export default function ThreeBackground() {
     </div>
   );
 }
-
