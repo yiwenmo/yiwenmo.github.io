@@ -9,7 +9,7 @@ export default function Blog() {
       title: "WSL2 VHDX Cleanup",
       link: "https://hackmd.io/@winniemyiwen/WSL2_vhdx",
       description: "How to shrink WSL2 virtual disks and free up your C drive when Docker cache grows unexpectedly."
-    }
+    },
     {
       title: "C++ Notes",
       link: "https://hackmd.io/@winniemyiwen/winniemo",
