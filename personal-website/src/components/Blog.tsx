@@ -10,6 +10,11 @@ export default function Blog() {
       link: "https://hackmd.io/@winniemyiwen/WSL2_vhdx",
       description: "How to shrink WSL2 virtual disks and free up your C drive when Docker cache grows unexpectedly."
     }
+    {
+      title: "C++ Notes",
+      link: "https://hackmd.io/@winniemyiwen/winniemo",
+      description: "Contains my notes and solutions to several C++ problems I worked on during a past class."
+    }
   ];
 
   return (
