@@ -44,7 +44,7 @@ export default function Home() {
         <div className="flex gap-6 text-gray-50">
           {/* <Link href="https://github.com/yiwenmo" className="hover:underline">Github</Link> */}
           <Link href="#projects" className="hover:underline">Projects</Link>
-          <Link href="/CV_202508_yiwenmo.pdf" className="hover:underline">CV</Link>
+          <Link href="/CV_202509_yiwenmo.pdf" className="hover:underline">CV</Link>
           <Link href="https://github.com/yiwenmo" className="hover:underline">GitHub</Link>
           <Link href="https://hackmd.io/@winniemyiwen" className="hover:underline">HackMD</Link>
           <Link href="https://tw.linkedin.com/in/winniemo" className="hover:underline">LinkedIn</Link>

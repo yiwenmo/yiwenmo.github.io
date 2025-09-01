@@ -7,7 +7,7 @@ export default function AboutMe() {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold uppercase">About Me</h2>
           <p className="text-lg text-gray-600 mt-4">
-          Passionate Learner | Bookworm | Diarist
+          INTP human being | Bookworm | Diarist
           </p>
         </div>
 
