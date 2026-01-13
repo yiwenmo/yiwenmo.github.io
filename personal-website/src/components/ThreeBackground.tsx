@@ -74,7 +74,7 @@ function ParticleField() {
   const { camera } = useThree();
   const pointsRef = useRef<THREE.Points>(null);
 
-
+  // 用 primitive
   const shaderMaterialInstance = useMemo(() => new ParticleMaterial(), []);
 
   const mouse = useRef<[number, number]>([0, 0]);
@@ -185,7 +185,7 @@ function ParticleField() {
         <bufferAttribute attach="attributes-aVelocity" args={[particleData.velocities, 1]} />
       </bufferGeometry>
 
-      {/* @ts-ignore */}
+      {/* 用 primitive，不用 <particleMaterial /> */}
       <primitive
         object={shaderMaterialInstance}
         attach="material"
