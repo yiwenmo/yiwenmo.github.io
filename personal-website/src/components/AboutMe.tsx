@@ -25,7 +25,8 @@ export default function AboutMe() {
             <h4 className="font-semibold text-base mb-1">Research Assistant</h4>
             <p className="text-gray-600 mb-2">Center for GIS, RCHSS, Academia Sinica</p>
             <ul className="space-y-1 list-disc list-inside">
-              <li>Focused on GeoAI research covering pedestrian networks, spatial relationships, and arcade detection, with APIs and web tools for data access.</li>
+              <li>Focusing on GeoAI research, including graph-based structure combined with spatial relationships on arcade detection, , and pedestrian networks</li>
+              <li>Building APIs and web tools to streamline spatial data access</li>
               <p className="text-sm text-gray-500">
                See my <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352938525001818" target="_blank" className="underline hover:text-blue-600">Arcade detection paper</a>
               </p>
@@ -66,9 +67,9 @@ export default function AboutMe() {
             <h4 className="font-semibold text-base mb-1">B.S. in Real Estate & Built Environment</h4>
             <p className="text-gray-600 mb-2">National Taipei University, Spatial Information Focus</p>
             <ul className="space-y-1 list-disc list-inside">
-              <li>Real Estate Broker license holder</li>
+              <li>Licensed Real Estate Broker</li>
               <li>Led outreach programs in land administration</li>
-              <li>Exchange student offer from HK PolyU (Land Surveying & Geo-Informatics), canceled due to COVID-19</li>
+              <li>Selected for exchange at HK PolyU; program canceled due to COVID-19</li>
             </ul>
           </div>
         </div>
