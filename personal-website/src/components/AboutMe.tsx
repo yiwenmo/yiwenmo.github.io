@@ -25,7 +25,7 @@ export default function AboutMe() {
             <h4 className="font-semibold text-base mb-1">Research Assistant</h4>
             <p className="text-gray-600 mb-2">Center for GIS, RCHSS, Academia Sinica</p>
             <ul className="space-y-1 list-disc list-inside">
-              <li>Focusing on GeoAI research, including graph-based structure combined with spatial relationships on arcade detection, , and pedestrian networks</li>
+              <li>Focusing on GeoAI research, including graph-based structure combined with spatial relationships on arcade detection and pedestrian networks</li>
               <li>Building APIs and web tools to streamline spatial data access</li>
               <p className="text-sm text-gray-500">
                See my <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352938525001818" target="_blank" className="underline hover:text-blue-600">Arcade detection paper</a>

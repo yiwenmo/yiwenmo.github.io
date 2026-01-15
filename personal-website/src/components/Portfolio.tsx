@@ -42,10 +42,10 @@ export default function Portfolio() {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             <ProjectCard
-              title="中央研究院研之有物"
+              title="中央研究院研之有物專訪報導"
               image="arcade_interview.png"
               link="https://research.sinica.edu.tw/arcade_ai/"
-              description="AI 怎麼看懂騎樓空間？中研院研之有物專訪報導"
+              description="AI 怎麼看懂騎樓空間？為遮風避雨的步行路線鋪路"
             />
             <ProjectCard
               title="Arcade detection"

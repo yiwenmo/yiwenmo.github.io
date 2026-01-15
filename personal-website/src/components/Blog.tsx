@@ -14,6 +14,11 @@ export default function Blog() {
       title: "C++ Notes",
       link: "https://hackmd.io/@winniemyiwen/winniemo",
       description: "Contains my notes and solutions to several C++ problems I worked on during a past class."
+    },
+    {
+      title: "Mac Terminal Customization",
+      link: "https://hackmd.io/@winniemyiwen/Mac_terminal",
+      description: "Setting up iTerm2 + Oh My Zsh for a better terminal experience"
     }
   ];
 

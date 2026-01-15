@@ -11,7 +11,7 @@ type ProjectCardProps = {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, image, link, description }) => {
   return (
-    <div className="relative rounded-xl overflow-hidden h-64 w-72 shrink-0 snap-center cursor-pointer transition-transform hover:scale-105 hover:shadow-lg">
+    <div className="relative rounded-xl overflow-hidden h-64 w-72 cursor-pointer transition-transform hover:scale-105 hover:shadow-lg">
       <Link href={link}>
         <Image
           src={`/${image}`}
@@ -30,5 +30,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, image, link, descripti
     </div>
   );
 };
+
 
 export default ProjectCard;
