@@ -7,7 +7,7 @@ export default function Portfolio() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const amount = 320; // 卡片寬度 + gap
+      const amount = 320; // gap between cards
       scrollRef.current.scrollBy({
         left: direction === "left" ? -amount : amount,
         behavior: "smooth",
@@ -23,8 +23,8 @@ export default function Portfolio() {
           <p className="text-gray-600">Some things I&apos;ve worked on.</p>
         </div>
 
-        <div className="relative">
-          {/* left */}
+        <div className="relative flex justify-center">
+          {/* left arrow */}
           <button
             onClick={() => scroll("left")}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-colors"
@@ -35,18 +35,16 @@ export default function Portfolio() {
             </svg>
           </button>
 
-          {/* projects */}
+          {/* content */}
           <div
             ref={scrollRef}
-            className="flex overflow-x-auto gap-8 px-12 pb-4 snap-x snap-mandatory scrollbar-hide"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory scrollbar-hide"
+            style={{ 
+              scrollbarWidth: "none", 
+              msOverflowStyle: "none",
+              maxWidth: "640px"
+            }}
           >
-            <ProjectCard
-              title="中央研究院研之有物專訪報導"
-              image="arcade_interview.png"
-              link="https://research.sinica.edu.tw/arcade_ai/"
-              description="AI 怎麼看懂騎樓空間？為遮風避雨的步行路線鋪路"
-            />
             <ProjectCard
               title="Arcade detection"
               image="Arcade_api.png"
@@ -59,9 +57,15 @@ export default function Portfolio() {
               link="https://kmlkmz2geojson.sgis.tw/"
               description="A simple online converter for KML/KMZ to GeoJSON"
             />
+            <ProjectCard
+              title="研之有物專訪"
+              image="arcade_interview.png"
+              link="https://research.sinica.edu.tw/arcade_ai/"
+              description="AI 如何辨識騎樓空間？研究歷程與應用分享"
+            />
           </div>
 
-          {/* right */}
+          {/* right arrow */}
           <button
             onClick={() => scroll("right")}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-colors"
