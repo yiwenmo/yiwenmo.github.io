@@ -58,10 +58,10 @@ export default function Portfolio() {
               description="A simple online converter for KML/KMZ to GeoJSON"
             />
             <ProjectCard
-              title="研之有物專訪"
+              title="中央研究院 - 研之有物專訪"
               image="arcade_interview.png"
               link="https://research.sinica.edu.tw/arcade_ai/"
-              description="AI 如何辨識騎樓空間？研究歷程與應用分享"
+              description="AI 怎麼看懂騎樓空間？為遮風避雨的步行路線鋪路"
             />
           </div>
 
