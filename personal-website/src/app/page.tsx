@@ -8,31 +8,6 @@ import Portfolio from "@/components/Portfolio";
 import Blog from "@/components/Blog";
 
 
-export const metadata = {
-  title: "Winnie Mo",
-  description: "Check my stuff out.",
-  openGraph: {
-    type: "website",
-    url: "https://winniemo.com/",
-    title: "Winnie Mo",
-    description: "Check my stuff out.",
-    images: [
-      {
-        url: "/thumbnail_v1.png",
-        width: 1200,
-        height: 630,
-        alt: "Winnie Mo",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Winnie Mo",
-    description: "Check my stuff out.",
-    images: ["/thumbnail_v1.png"],
-  },
-};
-
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -40,14 +15,15 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="h-screen flex flex-col justify-center items-center text-center">
-        <h1 className="text-5xl font-bold mb-6">Winnie Mo</h1>
+        <h1 className="text-5xl font-bold mb-4">Winnie Mo</h1>
+        <p className="text-lg text-gray-300 mb-6">GIS Ph.D. Student @ Arizona State University</p>
         <div className="flex gap-6 text-gray-50">
-          {/* <Link href="https://github.com/yiwenmo" className="hover:underline">Github</Link> */}
+          {/* <Link href="https://github.com/yiwenmo" target="_blank" rel="noopener noreferrer" className="hover:underline">Github</Link> */}
           <Link href="#projects" className="hover:underline">Projects</Link>
-          <Link href="/CV_2025_yiwenmo.pdf" className="hover:underline">CV</Link>
-          <Link href="https://github.com/yiwenmo" className="hover:underline">GitHub</Link>
-          <Link href="https://hackmd.io/@winniemyiwen" className="hover:underline">HackMD</Link>
-          <Link href="https://tw.linkedin.com/in/winniemo" className="hover:underline">LinkedIn</Link>
+          <Link href="/CV_2025_yiwenmo.pdf" target="_blank" className="hover:underline">CV</Link>
+          <Link href="https://github.com/yiwenmo" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</Link>
+          <Link href="https://hackmd.io/@winniemyiwen" target="_blank" rel="noopener noreferrer" className="hover:underline">HackMD</Link>
+          <Link href="https://www.linkedin.com/in/winniemo" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</Link>
         </div>
       </section>
 

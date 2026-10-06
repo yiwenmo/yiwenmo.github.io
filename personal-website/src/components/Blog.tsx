@@ -1,6 +1,21 @@
 export default function Blog() {
   const posts = [
     {
+      title: "2026 Fall PhD Application Journey",
+      link: "https://hackmd.io/@winniemyiwen/PhDapplication",
+      description: "A detailed write-up of my US PhD application process — what I did, what I learned, and tips for future applicants (in Chinese)."
+    },
+    {
+      title: "Fixing MacBook Air Overheating",
+      link: "https://hackmd.io/@winniemyiwen/macbookair",
+      description: "Tracking down a frozen Notification Center that kept an M2 MacBook Air running hot."
+    },
+    {
+      title: "Zotero for Researchers",
+      link: "https://hackmd.io/@winniemyiwen/zotero_intro",
+      description: "Why Zotero is a must-have reference manager for grad students and researchers."
+    },
+    {
       title: "PyTorch Installation",
       link: "https://hackmd.io/@winniemyiwen/PyTorch_installation",
       description: "Step-by-step guide for installing PyTorch with CUDA support."
@@ -9,6 +24,11 @@ export default function Blog() {
       title: "WSL2 VHDX Cleanup",
       link: "https://hackmd.io/@winniemyiwen/WSL2_vhdx",
       description: "How to shrink WSL2 virtual disks and free up your C drive when Docker cache grows unexpectedly."
+    },
+    {
+      title: "Why is Spatial Statistics Important?",
+      link: "https://hackmd.io/@winniemyiwen/Spatial_stats",
+      description: "An introduction to spatial autocorrelation, variograms and kriging."
     },
     {
       title: "C++ Notes",
@@ -26,8 +46,8 @@ export default function Blog() {
     <section id="blog" className="py-20 bg-white text-gray-800">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold uppercase text-gray-900 dark:text-black">Blog</h2>
-          <p className="text-gray-600 dark:text-gray-400">
+          <h2 className="text-4xl font-bold uppercase text-gray-900">Blog</h2>
+          <p className="text-gray-600">
             Selected notes I&apos;ve written on HackMD.
           </p>
         </div>
@@ -38,12 +58,12 @@ export default function Blog() {
               href={post.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="block p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:scale-[1.02] hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+              className="block p-6 rounded-lg border border-gray-200 hover:shadow-lg hover:scale-[1.02] hover:bg-gray-50 transition"
             >
-              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-black">
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">
                 {post.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">{post.description}</p>
+              <p className="text-gray-600 text-sm">{post.description}</p>
             </a>
           ))}
         </div>

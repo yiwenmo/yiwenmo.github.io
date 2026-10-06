@@ -11,7 +11,21 @@ export default function AboutMe() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-left text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-left text-sm">
+          {/* ASU */}
+          <div>
+            {/* TODO: replace with /logos/ASU_logo.png once added */}
+            <div className="w-20 h-20 mb-4 rounded-lg bg-[#8C1D40] text-[#FFC627] flex items-center justify-center text-xl font-bold">
+              ASU
+            </div>
+            <h4 className="font-semibold text-base mb-1">Ph.D. in Geographic Information Science</h4>
+            <p className="text-gray-600 mb-2">School of Geographical Sciences and Urban Planning, Arizona State University</p>
+            <ul className="space-y-1 list-disc list-inside">
+              <li>Started Fall 2026</li>
+              <li>Continuing research in GeoAI and spatial machine learning</li>
+            </ul>
+          </div>
+
           {/* Academia Sinica */}
           <div>
             <Image
@@ -25,12 +39,12 @@ export default function AboutMe() {
             <h4 className="font-semibold text-base mb-1">Research Assistant</h4>
             <p className="text-gray-600 mb-2">Center for GIS, RCHSS, Academia Sinica</p>
             <ul className="space-y-1 list-disc list-inside">
-              <li>Focusing on GeoAI research, including graph-based structure combined with spatial relationships on arcade detection and pedestrian networks</li>
-              <li>Building APIs and web tools to streamline spatial data access</li>
-              <p className="text-sm text-gray-500">
-               See my <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352938525001818" target="_blank" className="underline hover:text-blue-600">Arcade detection paper</a>
-              </p>
+              <li>Focused on GeoAI research, including graph-based structure combined with spatial relationships on arcade detection and pedestrian networks</li>
+              <li>Built APIs and web tools to streamline spatial data access</li>
             </ul>
+              <p className="text-sm text-gray-500 mt-2">
+               See my <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352938525001818" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">Arcade detection paper</a>
+              </p>
           </div>
 
           {/* NTU */}
@@ -48,10 +62,10 @@ export default function AboutMe() {
             <ul className="space-y-1 list-disc list-inside">
               <li>Awarded 2023 Dean’s Honor (Top 1%)</li>
               <li>Focused on spatial machine learning and remote sensing</li>
-              <p className="text-sm text-gray-500">
-              See my <a href="https://tdr.lib.ntu.edu.tw/handle/123456789/88520" target="_blank" className="underline hover:text-blue-600">Master Thesis</a>
-              </p>
             </ul>
+              <p className="text-sm text-gray-500 mt-2">
+              See my <a href="https://tdr.lib.ntu.edu.tw/handle/123456789/88520" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">Master Thesis</a>
+              </p>
           </div>
 
           {/* NTPU */}

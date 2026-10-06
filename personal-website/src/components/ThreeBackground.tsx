@@ -102,7 +102,17 @@ function ParticleField() {
     };
   }, [camera]);
 
-  const count = 5000;
+  // fewer particles on small screens to save battery
+  const count = useMemo(() => (typeof window !== 'undefined' && window.innerWidth < 768 ? 2000 : 5000), []);
+  const reducedMotion = useMemo(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    []
+  );
+  // reused every frame instead of allocating per particle
+  const temp = useMemo(() => new THREE.Vector3(), []);
+  const mouseVec = useMemo(() => new THREE.Vector3(), []);
+  const direction = useMemo(() => new THREE.Vector3(), []);
+  const forceDir = useMemo(() => new THREE.Vector3(), []);
   const particleData = useMemo(() => {
     const positions = new Float32Array(count * 3);
     const lifetimes = new Float32Array(count * 2);
@@ -119,23 +129,17 @@ function ParticleField() {
       velocities[i] = 0;
     }
     return { positions, lifetimes, velocities };
-  }, []);
+  }, [count]);
 
   useFrame((_, delta) => {
-    if (!pointsRef.current) return;
+    if (!pointsRef.current || reducedMotion) return;
 
     const posAttr = pointsRef.current.geometry.attributes.position;
     const lifetimeAttr = pointsRef.current.geometry.attributes.aLifetime;
     const velocityAttr = pointsRef.current.geometry.attributes.aVelocity;
     const time = performance.now() * 0.001;
 
-    const mouseVec = new THREE.Vector3(
-      (mouse.current[0] - 0.5) * 10,
-      (mouse.current[1] - 0.5) * 10,
-      0
-    );
-
-    const temp = new THREE.Vector3();
+    mouseVec.set((mouse.current[0] - 0.5) * 10, (mouse.current[1] - 0.5) * 10, 0);
 
     for (let i = 0; i < count; i++) {
       let life = lifetimeAttr.getX(i) - delta;
@@ -148,7 +152,7 @@ function ParticleField() {
       temp.fromBufferAttribute(posAttr, i);
       const noise = simplex(temp.x, temp.y, temp.z, time);
 
-      const direction = new THREE.Vector3().subVectors(mouseVec, temp).normalize();
+      direction.subVectors(mouseVec, temp).normalize();
       const distanceToMouse = temp.distanceTo(mouseVec);
       const maxInfluence = 10.0;
       const influenceFalloff = 1.0 - Math.min(distanceToMouse / maxInfluence, 1.0);
@@ -160,7 +164,7 @@ function ParticleField() {
         if (elapsed < 0.5) {
           const clickDist = temp.distanceTo(clickRef.current.position);
           const impact = Math.max(0, 1.0 - clickDist / 2.0);
-          const forceDir = new THREE.Vector3().subVectors(temp, clickRef.current.position).normalize();
+          forceDir.subVectors(temp, clickRef.current.position).normalize();
           temp.addScaledVector(forceDir, impact * delta * 5.0);
         } else {
           clickRef.current = null;

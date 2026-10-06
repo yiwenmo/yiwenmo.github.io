@@ -16,11 +16,11 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gray-0">
+    <section id="projects" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold uppercase">Projects</h2>
-          <p className="text-gray-600">Some things I&apos;ve worked on.</p>
+          <p className="text-gray-300 mt-4">Some things I&apos;ve worked on.</p>
         </div>
 
         <div className="relative flex justify-center">
@@ -47,19 +47,19 @@ export default function Portfolio() {
           >
             <ProjectCard
               title="Arcade detection"
-              image="Arcade_api.png"
+              image="Arcade_api.webp"
               link="https://gcn.sgis.tw/"
               description="A GeoAI tool for detecting arcades using bi-directed graph of spatial relationships"
             />
             <ProjectCard
               title="kmlkmz2geojson"
-              image="kmlkmz2geojson.png"
+              image="kmlkmz2geojson.webp"
               link="https://kmlkmz2geojson.sgis.tw/"
               description="A simple online converter for KML/KMZ to GeoJSON"
             />
             <ProjectCard
               title="中央研究院 - 研之有物專訪"
-              image="arcade_interview.png"
+              image="arcade_interview.webp"
               link="https://research.sinica.edu.tw/arcade_ai/"
               description="AI 怎麼看懂騎樓空間？為遮風避雨的步行路線鋪路"
             />
