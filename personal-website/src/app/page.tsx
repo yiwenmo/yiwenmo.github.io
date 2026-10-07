@@ -15,11 +15,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="h-screen flex flex-col justify-center items-center text-center">
-        <h1 className="text-5xl font-bold mb-4">Winnie Mo</h1>
-        <p className="text-lg text-gray-300 mb-6">GIS Ph.D. Student @ Arizona State University</p>
-        <div className="flex gap-6 text-gray-50">
+        <h1 className="text-5xl font-bold mb-6">Winnie Mo</h1>
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 px-6 text-gray-50">
+          <Link href="#about" className="hover:underline">About</Link>
           {/* <Link href="https://github.com/yiwenmo" target="_blank" rel="noopener noreferrer" className="hover:underline">Github</Link> */}
           <Link href="#projects" className="hover:underline">Projects</Link>
+          <Link href="#blog" className="hover:underline">Blog</Link>
           <Link href="/CV_2025_yiwenmo.pdf" target="_blank" className="hover:underline">CV</Link>
           <Link href="https://github.com/yiwenmo" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</Link>
           <Link href="https://hackmd.io/@winniemyiwen" target="_blank" rel="noopener noreferrer" className="hover:underline">HackMD</Link>

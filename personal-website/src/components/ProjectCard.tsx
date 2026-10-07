@@ -7,26 +7,31 @@ type ProjectCardProps = {
     image: string;
     link: string;
     description: string;
+    imagePosition?: string; // CSS object-position for the cover image
 };
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, image, link, description }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, image, link, description, imagePosition = "top" }) => {
   return (
-    <div className="relative rounded-xl overflow-hidden h-64 w-72 shrink-0 snap-center cursor-pointer transition-transform hover:scale-105 hover:shadow-lg">
-      <Link href={link} target="_blank" rel="noopener noreferrer">
+    <Link
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex flex-col rounded-xl overflow-hidden border border-white/10 bg-white/[0.04] backdrop-blur-sm transition hover:-translate-y-1 hover:border-white/25 hover:bg-white/[0.08]"
+    >
+      <div className="relative aspect-[16/10] border-b border-white/10 bg-white">
         <Image
           src={`/${image}`}
           alt={title}
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', objectPosition: imagePosition }}
           unoptimized
         />
-        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
-        <div className="absolute bottom-4 left-4 right-4 z-10">
-          <h3 className="text-white font-semibold text-lg mb-1">{title}</h3>
-          <p className="text-white/90 text-sm">{description}</p>
-        </div>
-      </Link>
-    </div>
+      </div>
+      <div className="p-5">
+        <h3 className="font-semibold text-gray-100 mb-1 group-hover:underline underline-offset-4">{title}</h3>
+        <p className="text-sm text-gray-400">{description}</p>
+      </div>
+    </Link>
   );
 };
 
